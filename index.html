@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Let's play!</title>
+</head>
+
+<body>
+    <header>
+        <h1>Let's Play Rock, Paper, Scissors!</h1>
+
+    </header>
+
+    <section class="gaming-area">
+        <div class="controls-area">
+            <p>Make your choice!</p>
+            <button aria-label="Rock" data-choice="0" class="butn">Rock</button>
+            <button aria-label="Paper" data-choice="1" class="butn">Paper</button>
+            <button aria-label="Scissors" data-choice="2" class="butn">Scissors</button>
+        </div>
+
+        <div class="play-area">
+            <div class="update">
+                <p>message</p>
+            </div>
+            <div class="player">
+                <h2 class="score">Your Score:<span id="score-player">0</span></h2>
+                <p>place immage for player here</p>
+
+            </div>
+            <div class="computer">
+                <h2>Computer's Score:<span id="score-computer">0</span></h2>
+                <p>place immage for computer here</p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer>
+        <h3>Rules</h3>
+        <p> Rock wins against scissors.
+            Scissors wins against paper.
+            Paper wins against rock.
+        </p>
+
+
+    </footer>
+
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
