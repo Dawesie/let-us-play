@@ -36,3 +36,12 @@ footer {
     padding-top: 1%;
     min-height: 80px;
 }
+
+/*styling for gaming area*/
+.gaming-area {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    width: 75%;
+}
