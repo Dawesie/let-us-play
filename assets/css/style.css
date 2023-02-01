@@ -1,2 +1,38 @@
 /* syntax for code  font-family: 'Itim', cursive;
 font-family: 'Noto Sans Symbols', sans-serif; */
+/* main body set up */
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    font-family: 'Itim', 'cursive', sans-serif;
+    margin: 0%;
+}
+
+/*style for header and footer*/
+header {
+    text-align: center;
+    height: 100px;
+    background-color: #abd699;
+    margin-top: 0%;
+    padding-top: 1%;
+    box-sizing: border-box;
+    color: #16123f;
+    border: 1px solid #16123f;
+}
+
+footer {
+    text-align: center;
+    background-color: #abd699;
+    color: #16123f;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    box-sizing: border-box;
+    border: 1px solid #16123f;
+    padding-top: 1%;
+    min-height: 80px;
+}
