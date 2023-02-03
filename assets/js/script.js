@@ -1,7 +1,7 @@
 /** 
  * Check that the DOM content has been loaded. 
  * Add event listners to the button 
- * Pass choice into game area
+ * Pass choice into playon function
  */
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
@@ -22,13 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             let yourChoice = this.getAttribute("data-choice");
             console.log(yourChoice);
-            playOn(yourChoice)
+            playGame(yourChoice)
         })
 
     }
 })
 
-function playOn(yourChoice) {
+/**
+ * playGame is the main function where game is played
+ * yourchoice entered from screen, computerchoice selected at random 
+ * yourchoices, copmuter choice passed to chooseWinner fuction
+ * winner is passed to new score to update results
+ */
+function playGame(yourChoice) {
     const choice = ["rock", "paper", "scissors"]
     console.log(choice);
     const playerImage = document.getElementById("player-image");
@@ -44,5 +50,17 @@ function playOn(yourChoice) {
     computerImage.alt = choice[computerChoice];
     console.log(computerImage);
 
+    console.log(choice[yourChoice], choice[computerChoice]);
+
+    let winner = chooseWinner(choice[yourChoice], choice[computerChoice]);
+
+
+}
+
+function chooseWinner() {
+
+}
+
+function newScore() {
 
 }
