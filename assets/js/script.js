@@ -53,14 +53,79 @@ function playGame(yourChoice) {
     console.log(choice[yourChoice], choice[computerChoice]);
 
     let winner = chooseWinner(choice[yourChoice], choice[computerChoice]);
+    console.log(winner);
+
+    upDateResults(winner);
+
+    newScore();
+
 
 
 }
 
-function chooseWinner() {
+/**
+ * This function detemines the winner from choices made
+ * @param {choice[yourChoice]*} playerchoice 
+ * @param {choice[computerChoice]*} compchoice 
+ * @returns it's a tie it choices the same, you win when player wins and computer wins when computer wins
+ * choices are checked agaians the rules of the game using if else statements 
+ */
+function chooseWinner(playerchoice, compchoice) {
+    if (playerchoice === compchoice) {
+        return "It's a tie!";
+    } else if (playerchoice === "rock") {
+        if (compchoice === "paper") {
+            return "computer wins";
+        } else {
+            return "you win";
+        }
+
+    } else if (playerchoice === "paper") {
+        if (compchoice === "scissors") {
+            return "computer wins"
+        } else {
+            return "you win"
+        }
+
+    } else if (playerchoice === "scissors") {
+        if (compchoice === "rock") {
+            return "computer wins"
+        } else {
+            return "you win"
+        }
+    }
 
 }
+
+/**
+ * This function updates the results.
+ * It passes teh value of winner into the function, 
+ * @param {winner} winner 
+ * this paramater is then used to send an update message to the screen.
+ */
+function upDateResults(winner) {
+    let update = document.getElementById("update");
+    if (winner === "It's a tie!") {
+        update.innerHTML = `It's a tie! No score change. Please try again.`;
+        update.style.color = "rgb(107, 171, 211)";
+    } else if (winner === "you win") {
+        update.innerHTML = `Congratulations, you win!`;
+        update.style.color = "RGB(255, 195, 0)";
+    } else {
+        update.innerHTML = `Aww... the computer wins!`;
+        update.style.color = "rgb(236, 136, 96)";
+    }
+}
+
 
 function newScore() {
-
+    let oldScorePlayer = parseInt(document.getElementById("score-player").innerText);
+    let oldScoreCoomputer = parseInt(document.getElementById("score-computer").innerText);
+    if (winner === "you win") {
+        let newScorePlayer = oldScorePlayer + 1;
+        oldScorePlayer.innerText = newScorePlayer;
+    } else {
+        let newScoreComputer = oldScoreCoomputer + 1;
+        oldScoreCoomputer.innerText = newScoreComputer;
+    }
 }
