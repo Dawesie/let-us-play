@@ -57,7 +57,7 @@ function playGame(yourChoice) {
 
     upDateResults(winner);
 
-    newScore();
+    newScore(winner);
 
 
 
@@ -118,14 +118,14 @@ function upDateResults(winner) {
 }
 
 
-function newScore() {
-    let oldScorePlayer = parseInt(document.getElementById("score-player").innerText);
-    let oldScoreCoomputer = parseInt(document.getElementById("score-computer").innerText);
+function newScore(winner) {
+    let oldScorePlayer = document.getElementById("score-player");
+    let oldScoreCoomputer = document.getElementById("score-computer");
     if (winner === "you win") {
         let newScorePlayer = oldScorePlayer + 1;
-        oldScorePlayer.innerText = newScorePlayer;
+        oldScorePlayer.innerHTML = newScorePlayer;
     } else {
         let newScoreComputer = oldScoreCoomputer + 1;
-        oldScoreCoomputer.innerText = newScoreComputer;
+        oldScoreCoomputer.innerHTML = newScoreComputer;
     }
 }
