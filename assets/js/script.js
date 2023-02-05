@@ -3,7 +3,7 @@
  * Add event listners to the button 
  * Pass choice into playon function
  */
-let attempts = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
 
@@ -49,10 +49,7 @@ function playGame(yourChoice) {
 
     newScore(winner);
 
-    attempts++;
-    console.log(attempts);
 
-    gameOver(attempts)
 }
 
 
@@ -60,7 +57,7 @@ function playGame(yourChoice) {
  * This function detemines the winner from choices made
  * @param {choice[yourChoice]*} playerchoice 
  * @param {choice[computerChoice]*} compchoice 
- * @returns it's a tie it choices the same, you win when player wins and computer wins when computer wins
+ * @returns 'it's a tie' if choices the same, 'you win' when player wins and 'computer wins' when computer wins
  * choices are checked agaians the rules of the game using if else statements 
  */
 function chooseWinner(playerchoice, compchoice) {
@@ -122,17 +119,5 @@ function newScore(winner) {
     } else if (winner === "computer wins") {
         let newScoreComputer = Number(oldScoreCoomputer.innerHTML) + 1;
         oldScoreCoomputer.innerHTML = newScoreComputer;
-    }
-}
-
-function gameOver(attempts) {
-    let gameattempts = document.getElementById("update");
-    let controls = document.getElementsByClassName("controls-area");
-    let playerScore = document.getElementById("score-player")
-    let computerScore = document.getElementById("score-computer")
-    if (attempts === 5) {
-        controls.innerHTML.style.dispaly = 'none'
-        gameattempts.innerHTML = "Game over!";
-        return;
     }
 }
