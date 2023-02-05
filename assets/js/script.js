@@ -3,6 +3,7 @@
  * Add event listners to the button 
  * Pass choice into playon function
  */
+let attempts = 0;
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
 
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
             let yourChoice = this.getAttribute("data-choice");
-            console.log(yourChoice);
+
             playGame(yourChoice)
         })
 
@@ -31,32 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 function playGame(yourChoice) {
     const choice = ["rock", "paper", "scissors"]
-    console.log(choice);
+
     const playerImage = document.getElementById("player-image");
     playerImage.src = `assets/images/${choice[yourChoice]}.png`;
     playerImage.alt = choice[yourChoice];
-    console.log(playerImage);
 
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice);
 
     const computerImage = document.getElementById("computer-image");
     computerImage.src = `assets/images/${choice[computerChoice]}.png`;
     computerImage.alt = choice[computerChoice];
-    console.log(computerImage);
-
-    console.log(choice[yourChoice], choice[computerChoice]);
 
     let winner = chooseWinner(choice[yourChoice], choice[computerChoice]);
-    console.log(winner);
 
     upDateResults(winner);
 
     newScore(winner);
 
+    attempts++;
+    console.log(attempts);
 
-
+    gameOver(attempts)
 }
+
 
 /**
  * This function detemines the winner from choices made
@@ -94,14 +92,13 @@ function chooseWinner(playerchoice, compchoice) {
 
 /**
  * This function updates the results.
- * It passes teh value of winner into the function, 
- * @param {winner} winner 
- * this paramater is then used to send an update message to the screen.
+ * It passes the value of winner into the function, 
+ * then this paramater is then used to send an update message to the screen.
  */
 function upDateResults(winner) {
     let update = document.getElementById("update");
     if (winner === "It's a tie!") {
-        update.innerHTML = `It's a tie!`;
+        update.innerHTML = `It's a tie! No score change, please try again.`;
         update.style.color = "rgb(107, 171, 211)";
     } else if (winner === "you win") {
         update.innerHTML = `Congratulations, you win!`;
@@ -113,8 +110,8 @@ function upDateResults(winner) {
 }
 
 /**
- * this function uses the 
- * @param {winner} winner 
+ * this function uses the update(winner) results
+ * to change and update the score on the screen.  
  */
 function newScore(winner) {
     let oldScorePlayer = document.getElementById("score-player");
@@ -126,5 +123,16 @@ function newScore(winner) {
         let newScoreComputer = Number(oldScoreCoomputer.innerHTML) + 1;
         oldScoreCoomputer.innerHTML = newScoreComputer;
     }
-    console.log("ive been used")
+}
+
+function gameOver(attempts) {
+    let gameattempts = document.getElementById("update");
+    let controls = document.getElementsByClassName("controls-area");
+    let playerScore = document.getElementById("score-player")
+    let computerScore = document.getElementById("score-computer")
+    if (attempts === 5) {
+        controls.innerHTML.style.dispaly = 'none'
+        gameattempts.innerHTML = "Game over!";
+        return;
+    }
 }
