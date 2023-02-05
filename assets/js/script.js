@@ -5,20 +5,15 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
-    console.log(buttons);
-    console.log(buttons[0]);
-    console.log(buttons[1]);
-    console.log(buttons[2]);
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-choice") === "0") {
-                alert("you clicked rock")
 
             } else if (this.getAttribute("data-choice") === "1") {
-                alert("you clicked paper")
+
             } else if (this.getAttribute("data-choice") === "2") {
-                alert("you clicked scissors")
+
             }
             let yourChoice = this.getAttribute("data-choice");
             console.log(yourChoice);
@@ -106,7 +101,7 @@ function chooseWinner(playerchoice, compchoice) {
 function upDateResults(winner) {
     let update = document.getElementById("update");
     if (winner === "It's a tie!") {
-        update.innerHTML = `It's a tie! No score change. Please try again.`;
+        update.innerHTML = `It's a tie!`;
         update.style.color = "rgb(107, 171, 211)";
     } else if (winner === "you win") {
         update.innerHTML = `Congratulations, you win!`;
@@ -117,15 +112,19 @@ function upDateResults(winner) {
     }
 }
 
-
+/**
+ * this function uses the 
+ * @param {winner} winner 
+ */
 function newScore(winner) {
     let oldScorePlayer = document.getElementById("score-player");
     let oldScoreCoomputer = document.getElementById("score-computer");
     if (winner === "you win") {
-        let newScorePlayer = oldScorePlayer + 1;
+        let newScorePlayer = Number(oldScorePlayer.innerHTML) + 1;
         oldScorePlayer.innerHTML = newScorePlayer;
-    } else {
-        let newScoreComputer = oldScoreCoomputer + 1;
+    } else if (winner === "computer wins") {
+        let newScoreComputer = Number(oldScoreCoomputer.innerHTML) + 1;
         oldScoreCoomputer.innerHTML = newScoreComputer;
     }
+    console.log("ive been used")
 }
