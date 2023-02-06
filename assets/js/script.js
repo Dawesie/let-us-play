@@ -3,22 +3,17 @@
  * Add event listners to the button 
  * Pass choice into playon function
  */
-
+let attempts = 0;
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
-            if (this.getAttribute("data-choice") === "0") {
 
-            } else if (this.getAttribute("data-choice") === "1") {
-
-            } else if (this.getAttribute("data-choice") === "2") {
-
-            }
             let yourChoice = this.getAttribute("data-choice");
 
             playGame(yourChoice)
+
         })
 
     }
@@ -45,11 +40,15 @@ function playGame(yourChoice) {
 
     let winner = chooseWinner(choice[yourChoice], choice[computerChoice]);
 
+
     upDateResults(winner);
 
     newScore(winner);
 
+    attempts = attempts + 1;
+    console.log(attempts);
 
+    gameEnd(attempts);
 }
 
 
@@ -119,5 +118,18 @@ function newScore(winner) {
     } else if (winner === "computer wins") {
         let newScoreComputer = Number(oldScoreCoomputer.innerHTML) + 1;
         oldScoreCoomputer.innerHTML = newScoreComputer;
+    }
+}
+
+
+function gameEnd(attempts) {
+    let endGame = document.getElementById("update");
+    console.log(attempts)
+    if (attempts === 3) {
+        endGame.innerHTML = `3 attemps, Game Over!`;
+        setTimeout(function () {
+            alert('Game over, play again');
+        }, 1);
+        window.location.reload();
     }
 }
