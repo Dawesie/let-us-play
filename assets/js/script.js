@@ -4,6 +4,10 @@
  * Pass choice into playon function
  */
 let attempts = 0;
+const playAgainbtn = document.getElementById("re-start");
+playAgainbtn.addEventListener("click", function () {
+    window.location.reload();
+});
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("butn");
 
@@ -121,12 +125,16 @@ function newScore(winner) {
     }
 }
 
-
+/**
+ * this finction will stop the game aallow the prayer start a new game after 10 attempts.
+ * the paramater attempts ti passed into the function to give the number of attempt.  
+ * once 10 is reached, an alert will signal teh end of the game.
+ */
 function gameEnd(attempts) {
     let endGame = document.getElementById("update");
     console.log(attempts)
-    if (attempts === 3) {
-        endGame.innerHTML = `3 attemps, Game Over!`;
+    if (attempts === 10) {
+        endGame.innerHTML = `10 attemps, Game Over!`;
         setTimeout(function () {
             alert('Game over, play again');
         }, 1);
