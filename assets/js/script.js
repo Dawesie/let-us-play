@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let yourChoice = this.getAttribute("data-choice");
 
-            playGame(yourChoice)
+            playGame(yourChoice);
 
-        })
+        });
 
     }
-})
+});
 
 /**
  * playGame is the main function where game is played
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * winner is passed to new score to update results
  */
 function playGame(yourChoice) {
-    const choice = ["rock", "paper", "scissors"]
+    const choice = ["rock", "paper", "scissors"];
 
     const playerImage = document.getElementById("player-image");
     playerImage.src = `assets/images/${choice[yourChoice]}.png`;
@@ -50,14 +50,13 @@ function playGame(yourChoice) {
     newScore(winner);
 
     attempts = attempts + 1;
-    console.log(attempts);
 
     gameEnd(attempts);
 }
 
 
 /**
- * This function detemines the winner from choices made
+ * This function detemines the winner from the player and computer choices made
  * @param {choice[yourChoice]*} playerchoice 
  * @param {choice[computerChoice]*} compchoice 
  * @returns 'it's a tie' if choices the same, 'you win' when player wins and 'computer wins' when computer wins
@@ -75,16 +74,16 @@ function chooseWinner(playerchoice, compchoice) {
 
     } else if (playerchoice === "paper") {
         if (compchoice === "scissors") {
-            return "computer wins"
+            return "computer wins";
         } else {
-            return "you win"
+            return "you win";
         }
 
     } else if (playerchoice === "scissors") {
         if (compchoice === "rock") {
-            return "computer wins"
+            return "computer wins";
         } else {
-            return "you win"
+            return "you win";
         }
     }
 
@@ -93,7 +92,8 @@ function chooseWinner(playerchoice, compchoice) {
 /**
  * This function updates the results.
  * It passes the value of winner into the function, 
- * then this paramater is then used to send an update message to the screen.
+ * this paramater is then used to send an update message to the screen
+ * to indicate who has won or if there is a tie.
  */
 function upDateResults(winner) {
     let update = document.getElementById("update");
@@ -110,8 +110,8 @@ function upDateResults(winner) {
 }
 
 /**
- * this function uses the update(winner) results
- * to change and update the score on the screen.  
+ * this function uses the result from the winner variable, 
+ * to change and update the score wnd write the new score on the screen.  
  */
 function newScore(winner) {
     let oldScorePlayer = document.getElementById("score-player");
@@ -126,13 +126,13 @@ function newScore(winner) {
 }
 
 /**
- * this finction will stop the game aallow the prayer start a new game after 10 attempts.
- * the paramater attempts ti passed into the function to give the number of attempt.  
- * once 10 is reached, an alert will signal teh end of the game.
+ * this finction will stop the game and allow the prayer start a new game after 10 attempts.
+ * the paramater attempts is passed into the function to give the number of attempt.  
+ * once 10 is reached, an alert will signal the end of the game.
  */
 function gameEnd(attempts) {
     let endGame = document.getElementById("update");
-    console.log(attempts)
+
     if (attempts === 10) {
         endGame.innerHTML = `10 attemps, Game Over!`;
         setTimeout(function () {
