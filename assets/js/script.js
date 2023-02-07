@@ -135,8 +135,8 @@ function gameEnd(attempts) {
 
     if (attempts === 10) {
         endGame.innerHTML = `10 attemps, Game Over!`;
-        setTimeout(function () {
-            alert('Game over, play again');
+        setTimeout(function () { //line 138 -139 had assistance from Jack
+            alert('Game over, play again'); // to stop and play the 10th attempt
         }, 1);
         window.location.reload();
     }
