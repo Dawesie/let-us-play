@@ -77,7 +77,8 @@ This is of value to the user as the rules are clearly visible and can be easily 
 When there is time:
 
 - I would like to extend the game to include lizard and spook options for those player who are fans of The Big Bang series.
-- I would also like to add code to extned the game to a make it a best out of threeor 5 option, which will make the game a little more competative.
+- I would also like to add code to extned the game to a make it a best out of three or five option, which will make the game a little more competative.
+- I would also like to extend the code to end the game more elegantly, instead of using and alet box. 
 
 
 # **Testing**
@@ -114,7 +115,7 @@ To my knowledge there are no unfixed bugs, I resolved them problems as they aros
 # **Deployment**
 The site was deployed through GitHub as follows:
 - In the GitHub repository, select project name, then navigate to “setting”, top right of the screen.
-- Navigate to “pages” in the menu on the left-hand side of the screen, once in GitHub pages, select none under branch, then select main and then save.
+- Navigate to “pages” in the menu on the left-hand side of the screen, once in GitHub pages, select none under branch, then select main and then click save.
 - This page will then provide a link to the website, listed here:
  https://dawesie.github.io/let-us-play/
 
